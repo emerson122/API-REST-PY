@@ -4,6 +4,6 @@ Encargada de proporcionar los métodos de acceso a la base de datos para trabaja
 de seguridad en middlewares encargados de comprobar si debe aceptarse o rechazar la solicitud, por ejemplo
 autorización o roles.
 
-## utiliza Django 3.2.4
+## Utiliza Django 3.2.4
 
 
