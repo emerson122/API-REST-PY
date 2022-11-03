@@ -3,6 +3,7 @@ from .models import empleados
 from django.http.response import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+import json
 # Create your views here.
 
 class EmpleadosView(View):
@@ -18,9 +19,13 @@ class EmpleadosView(View):
         return JsonResponse(datos)
 
     def post(self,request):
-
+        # print(request.body)
+        jd = json.loads(request.body)
+        # print(jd)
+        empleados.objects.create(name=jd['Name'],edad=jd['Edad'])
         datos = {'message':"Success"}
         return JsonResponse(datos)
+
     def put(self,request):
         pass
     def delete(self,request):
