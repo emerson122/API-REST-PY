@@ -51,5 +51,12 @@ class EmpleadosView(View):
             datos = {'message':"Empleado no encontrado"}
         return JsonResponse(datos)
 
-    def delete(self,request):
-        pass
+    def delete(self,request,id):
+         employes= list(empleados.objects.filter(id=id).values())
+         if len(employes) > 0:
+             empleados.objects.filter(id=id).delete()
+             datos = {'message':"Success"}
+         else:
+             datos = {'message':"Empleado no encontrado"}  
+         return JsonResponse(datos)
+
